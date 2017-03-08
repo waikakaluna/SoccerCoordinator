@@ -104,16 +104,37 @@ print(averageHeight(players: teamRaptors))
  Part 3: Letter to Guardians
  ***************************/
 
-/*func writeTeamLetters(players:[[String:Any]]){
- for playerNames in players{
- playerName["letters"] = ""
- }
- }*/
+func writeDragonLetters(players:[[String:Any]]){
+    
+    for playerName in players{
+        let practice = "March 17, @ 1pm"
+        let letter = "Dear \(playerName["guardianName"] as! String ), \(playerName["name"] as! String) has been selected to join Team Dragons!  Practice will begin \(practice)."
+        
+        print(letter)
+    }
+}
 
+func writeSharkLetters(players:[[String:Any]]){
+    
+    for playerName in players{
+        let practice = "March 17, @ 3pm"
+        let letter = "Dear \(playerName["guardianName"] as! String ), \(playerName["name"] as! String) has been selected to join Team Sharks!  Practice will begin \(practice)."
+        
+        print(letter)
+    }
+}
 
+func writeRaptorLetters(players:[[String:Any]]){
+    
+    for playerName in players{
+        let practice = "March 18, @ 1pm"
+        let letter = "Dear \(playerName["guardianName"] as! String ), \(playerName["name"] as! String) has been selected to join Team Raptors!  Practice will begin \(practice)."
+        
+        print(letter)
+    }
+}
 
-
-
-
-
+writeDragonLetters(players: teamDragons)
+writeSharkLetters(players: teamSharks)
+writeRaptorLetters(players: teamRaptors)
 
