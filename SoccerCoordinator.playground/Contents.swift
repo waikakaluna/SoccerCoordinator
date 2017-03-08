@@ -23,16 +23,22 @@ let player16: [String: Any] = ["name": "Philip Helm", "height": 44.0, "hasExperi
 let player17: [String: Any] = ["name": "Les Clay", "height": 42.0, "hasExperience": true, "guardianName": "Wynonna Brown"]
 let player18: [String: Any] = ["name": "Herschel Krustofski", "height": 45.0, "hasExperience": true, "guardianName": "Hyman and Rachel Krustofski"]
 
+
+//Storing the players
 let roster: [[String:Any]] = [player1, player2, player3, player4, player5, player6, player7, player8, player9, player10, player11, player12, player13, player14, player15, player16, player17, player18]
 
+
+//Sorting Collections
 var experiencedPlayers: [[String : Any]] = []
 var newbiePlayers: [[String : Any]] = []
 var sortedRoster: [[String : Any]] = []
 
+
+//Team Collections
 var teamDragons: [[String : Any]] = []
 var teamSharks: [[String : Any]] = []
 var teamRaptors: [[String : Any]] = []
-
+var letters:[String] = []
 
 
 /***********************
@@ -79,16 +85,26 @@ func averageHeight(players:[[String:Any]])-> Double {
     return average
 }
 
+
+//Separate by experience
 sortRoster(players: roster)
 
+
+//Separate by height
 experiencedPlayers.sort{(($0 as Dictionary<String, AnyObject>)["height"] as! Double) > (($1 as Dictionary<String, AnyObject>)["height"] as! Double)}
 newbiePlayers.sort{(($0 as Dictionary<String, AnyObject>)["height"] as! Double) < (($1 as Dictionary<String, AnyObject>)["height"] as! Double)}
 
+
+//Create a final sorted collection
 appendToSortedRoster(players: experiencedPlayers)
 appendToSortedRoster(players: newbiePlayers)
 
+
+//Break up the roster into teams
 sortTeams(players: sortedRoster)
 
+
+//Displaying the average height of each team.  Allowed 1.5 difference between each team
 print(averageHeight(players: teamDragons))
 print(averageHeight(players: teamSharks))
 print(averageHeight(players: teamRaptors))
@@ -104,7 +120,7 @@ func writeDragonLetters(){
     for playerName in teamDragons {
         let practice = "March 17, @ 1pm"
         let letter = "Dear \(playerName["guardianName"] as! String ), \(playerName["name"] as! String) has been selected to join Team Dragons!  Practice will begin \(practice)."
-        
+        letters.append(letter)
         print(letter)
     }
 }
@@ -114,7 +130,7 @@ func writeSharkLetters(){
     for playerName in teamSharks{
         let practice = "March 17, @ 3pm"
         let letter = "Dear \(playerName["guardianName"] as! String ), \(playerName["name"] as! String) has been selected to join Team Sharks!  Practice will begin \(practice)."
-        
+        letters.append(letter)
         print(letter)
     }
 }
@@ -124,11 +140,16 @@ func writeRaptorLetters(){
     for playerName in teamRaptors{
         let practice = "March 18, @ 1pm"
         let letter = "Dear \(playerName["guardianName"] as! String ), \(playerName["name"] as! String) has been selected to join Team Raptors!  Practice will begin \(practice)."
-        
+        letters.append(letter)
         print(letter)
     }
 }
 
+//Write and store the letters to be mailed to guardians
 writeDragonLetters()
 writeSharkLetters()
 writeRaptorLetters()
+
+
+//Print out the letters collection if necessary
+//print(letters)
